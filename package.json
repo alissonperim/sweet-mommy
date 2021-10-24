@@ -1,0 +1,15 @@
+{
+  "name": "sweet-mommy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/alissonperim/sweet-mommy.git",
+  "author": "Alisson Perim Honostorio <alisson.perim@paketa.com.br>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/typescript": "^2.0.0",
+    "@types/uuid": "^8.3.1",
+    "typescript": "^4.4.4",
+    "uuid": "^8.3.2"
+  },
+  "dependencies": {}
+}
