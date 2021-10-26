@@ -16,7 +16,15 @@
       "esModuleInterop": true,
       "emitDecoratorMetadata": true,
       "baseUrl": ".",
-      "paths": {}
+      "paths": {
+          "@core/*": ["./src/core/*"],
+          "@entities/*": ["./src/entities/*"],
+          "@repositories/*": ["./src/repositories/*"],
+          "@services/*": ["./src/services/*"],
+          "@shared/*": ["./src/shared/*"],
+          "@specs/*": ["./src/specs/*"],
+          "@useCases/*": ["./src/useCases/*"]
+        }
   },
   "include": [
       "src/**/*.ts",

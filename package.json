@@ -6,13 +6,25 @@
   "author": "Alisson Perim Honostorio <alisson.perim@paketa.com.br>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@types/typescript": "^2.0.0",
     "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "eslint": "^8.1.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "jest": "^27.3.1",
     "serverless-offline": "^8.2.0",
     "serverless-plugin-typescript": "^2.1.0",
     "serverless-tscpaths": "0.0.5",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.4.4",
     "uuid": "^8.3.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "scripts": {
+    "test": "jest"
+  }
 }
