@@ -1,26 +1,21 @@
-import { BadRequest } from '@core/exceptions/badRequest/badRequest.exception'
-import { InvalidInputException } from '@core/exceptions/invalidInput/invalidaInput.exception'
 import { BaseEntity } from '@entities/base-entity'
+import { GestationEntity } from '@entities/gestations'
 import {
   IsString,
   IsNotEmpty,
   Min,
   IsEmail,
   IsDate,
-  MaxDate,
   IsBoolean,
-  IsNumber,
-  validateOrReject
+  IsNumber
 } from 'class-validator'
 import { 
   Entity,
-  Column,
-  BeforeUpdate,
-  BeforeInsert,
+  Column
 } from 'typeorm'
 
-@Entity('users')
-export class UserEntity extends BaseEntity {
+@Entity('pregnant')
+export class PregnantEntity extends BaseEntity {
   @IsString()
   @IsNotEmpty({ message: 'the first name is missing' })
   @Min(3, { message: 'the first name should have 3 letters at least' })
@@ -29,6 +24,9 @@ export class UserEntity extends BaseEntity {
     nullable: false
   })
   firstName!: string
+
+  @IsNotEmpty()
+  gestationId!: GestationEntity[]
 
   @IsString()
   @IsNotEmpty({ message: 'the last name is missing' })
@@ -88,33 +86,11 @@ export class UserEntity extends BaseEntity {
     type: 'int2',
     nullable: false
   })
-  numberOfPregnance!: number
+  numberOfPregnances!: number
 
   @Column({
     type: 'string',
     nullable: true
   })
   phoneNumber?: string
-
-  @BeforeInsert()
-  async CreateValidate(): Promise<void>{
-    const msg = `Wasn't possible to create a new user, validation error.`
-    try{
-      await validateOrReject(this)
-    }catch(error)
-    {
-      throw new InvalidInputException(msg, 400)
-    }
-  }
-
-  @BeforeUpdate()
-  private async UpdateValidate(): Promise<void>{
-    const msg = `Wasn't possible to update the user {id: ${this.id}, firstName: ${this.firstName}}`
-    try{
-      await validateOrReject(this)
-    }catch(error)
-    {
-      throw new InvalidInputException(msg, 400)
-    }
-  }
 }
