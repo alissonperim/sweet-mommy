@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  Column,
   
 } from 'typeorm'
 
@@ -19,5 +20,6 @@ export class BaseEntity {
   @DeleteDateColumn()
   deletedAt!: Date
 
+  @Column()
   isActive!: true
 }

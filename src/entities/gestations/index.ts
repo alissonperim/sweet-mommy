@@ -58,11 +58,12 @@ export class GestationEntity extends BaseEntity {
   })
   possibleNamesFemale?: []
 
-  @IsEnum(Genders)
   @IsOptional()
   @IsNotEmpty()
+  @IsEnum(Genders, { message: 'Gender must be a valid gender' })
   @Column({
-    type: 'varchar',
+    type: 'enum',
+    enum: Genders,
     nullable: true
   })
   babyGender?: Genders

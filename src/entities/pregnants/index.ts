@@ -25,9 +25,6 @@ export class PregnantEntity extends BaseEntity {
   })
   firstName!: string
 
-  @IsNotEmpty()
-  gestationId!: GestationEntity[]
-
   @IsString()
   @IsNotEmpty({ message: 'the last name is missing' })
   @Min(3, { message: 'the last name should have 3 letters at least' })
@@ -36,6 +33,9 @@ export class PregnantEntity extends BaseEntity {
     nullable: false
   })
   lastName!: string
+
+  @IsNotEmpty()
+  gestationId!: GestationEntity[]
 
   @IsString()
   @IsNotEmpty({ message: 'the email is missing' })
